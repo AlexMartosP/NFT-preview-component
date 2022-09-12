@@ -1,0 +1,162 @@
+:root {
+  --clr-primary-400: hsl(215, 51%, 70%);
+  --clr-primary-600: hsl(178, 100%, 50%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-300: hsl(215, 32%, 27%);
+  --clr-neutral-500: hsl(216, 50%, 16%);
+  --clr-neutral-600: hsl(217, 54%, 11%);
+
+  --ff-primary: "Outfit", sans-serif;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-bold: 600;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* General */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-neutral-600);
+  font-family: var(--ff-primary);
+}
+
+/* Card */
+.card {
+  --max-width: 350px;
+  --padding: 1.5em;
+
+  max-width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+
+  background-color: var(--clr-neutral-500);
+  padding: var(--padding);
+  border-radius: 1em;
+}
+
+/* Card image */
+.card__image-wrapper {
+  position: relative;
+  cursor: pointer;
+  margin-block-end: 1.5em;
+}
+
+.card__image-wrapper:hover .card__image-overlay {
+  opacity: 1;
+}
+
+.card__image {
+  border-radius: 0.75em;
+}
+
+.card__image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsla(178, 100%, 50%, 0.5);
+  border-radius: 0.75em;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Card title */
+.card__title {
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-100);
+  cursor: pointer;
+}
+.card__title:hover {
+  color: var(--clr-primary-600);
+}
+
+/* Card paragraph */
+.card__paragraph {
+  font-size: 1.125rem;
+  font-weight: var(--fw-light);
+  color: var(--clr-primary-400);
+  padding-block-start: 1em;
+  padding-block-end: 1.5em;
+}
+
+/* Card meta */
+.card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__meta-item {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  color: var(--clr-primary-400);
+}
+
+.card__meta-item--cyan {
+  color: var(--clr-primary-600);
+}
+.card__meta-item--bold {
+  font-weight: var(--fw-bold);
+}
+
+/* Card author */
+.card__author-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  border-top: 1px solid var(--clr-neutral-300);
+  margin-block-start: 1.5em;
+  padding-block-start: 1em;
+  color: var(--clr-primary-400);
+}
+
+.card__author-image {
+  max-width: 2em;
+  border: 1px solid var(--clr-neutral-100);
+  border-radius: 50vh;
+}
+
+.card__author {
+  color: var(--clr-neutral-100);
+  cursor: pointer;
+}
+.card__author:hover {
+  color: var(--clr-primary-600);
+}
